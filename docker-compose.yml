@@ -1,0 +1,16 @@
+services:
+  nginx-proxy:
+    image: ghcr.io/stage-iii/minivpsproxy:latest
+    container_name: nginx-proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    name: proxy
