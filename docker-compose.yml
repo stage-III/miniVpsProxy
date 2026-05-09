@@ -8,6 +8,7 @@ services:
       - "443:443"
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /opt/miniVpsProxy/webroot:/var/www/certbot:ro
     networks:
       - proxy
 
